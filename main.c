@@ -4,7 +4,17 @@
 #include "inc/vector.h"
 #include "inc/server.h"
 
-void *send_msg_to_all(void *para)
+static void send_all(int my_fd, vector_t *list, char *buffer)
+{
+	for (size_t i = 0; i < list->size; i++) {
+		if (my_fd !=
+			(int)list->at(list, i))
+			dprintf((int)list->at(list,
+				i), "-> %s", buffer);
+	}
+}
+
+static void *send_msg_to_all(void *para)
 {
 	struct conn_s *conn = (struct conn_s *)para;
 	server_t *server = conn->server;
@@ -17,12 +27,7 @@ void *send_msg_to_all(void *para)
 			dprintf(conn->conn_fd, "Disconnected\n");
 			break;
 		}
-		for (size_t i = 0; i < server->connfd->size; i++) {
-			if (conn->conn_fd !=
-				(int)server->connfd->at(server->connfd, i))
-				dprintf((int)server->connfd->at(server->connfd,
-					i), "-> %s", server->buffer);
-		}
+		send_all(conn->conn_fd, server->connfd, server->buffer);
 	}
 	printf("Client disconnected\n");
 	free(conn);
