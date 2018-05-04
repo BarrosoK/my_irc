@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <memory.h>
 #include <stdlib.h>
-#include "vector.h"
-#include "server.h"
+#include "inc/vector.h"
+#include "inc/server.h"
 
 void *send_msg_to_all(void *para)
 {

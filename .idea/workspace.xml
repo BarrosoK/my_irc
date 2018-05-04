@@ -60,8 +60,8 @@
           <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="104">
-                  <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+                <state relative-caret-position="442">
+                  <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -238,7 +238,7 @@
       <updated>1525380802652</updated>
       <workItem from="1525380805275" duration="8103000" />
       <workItem from="1525417864793" duration="36000" />
-      <workItem from="1525435377916" duration="6393000" />
+      <workItem from="1525435377916" duration="6515000" />
     </task>
     <task id="LOCAL-00001">
       <created>1525440156096</created>
@@ -265,7 +265,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14532000" />
+    <option name="totallyTimeSpent" value="14654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1051" extended-state="6" />
@@ -278,13 +278,13 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3083605" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32899022" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32899022" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15023722" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TeamCity" order="7" />
       <window_info anchor="bottom" id="Tail" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27795875" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27795875" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -420,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="442">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

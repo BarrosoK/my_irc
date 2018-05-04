@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <memory.h>
-#include "vector.h"
+#include "../inc/vector.h"
 
 size_t get_size(vector_t *vector)
 {

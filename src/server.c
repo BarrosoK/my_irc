@@ -11,9 +11,7 @@
 #include <netinet/in.h>
 #include <strings.h>
 #include <pthread.h>
-#include <stdio.h>
-#include <memory.h>
-#include "server.h"
+#include "../inc/server.h"
 
 int open_port(server_t *server, size_t port)
 {
