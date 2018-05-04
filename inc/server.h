@@ -21,8 +21,10 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 #define WARNING "\x1b[33m/\x1b[31m!\x1b[33m\\ \x1b[0m"
-#define LOG "\x1b[33m[\x1b[34m-\x1b[33m]\x1b[0m"
-#define JOIN "\x1b[33m[\x1b[35m+\x1b[33m]\x1b[0m"
+#define LOG "\x1b[33m[\x1b[32m-\x1b[33m]\x1b[0m"
+#define JOIN "\x1b[33m[\x1b[31m+\x1b[33m]\x1b[0m"
+#define PM "\x1b[33m[\x1b[32mPM\x1b[33m]\x1b[0m"
+#define QUIT "\x1b[33m[\x1b[31m-\x1b[33m]\x1b[0m"
 
 typedef struct server_s server_t;
 

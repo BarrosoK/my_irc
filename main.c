@@ -9,8 +9,8 @@ static void *connection_handler(void *para)
 	struct conn_s *conn = (struct conn_s *)para;
 	server_t *server = conn->server;
 
-	server->conn->push_back(server->conn, (void *)conn);
 	server->ask_pseudo(conn);
+	server->conn->push_back(server->conn, (void *)conn);
 	while (server->get_paquet(conn) == 0) {
 		if (strcasecmp(server->buffer, "list\n") == 0) {
 			server->send_list(conn);

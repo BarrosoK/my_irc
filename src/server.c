@@ -94,18 +94,24 @@ void ask_pseudo(struct conn_s *conn)
 {
 	server_t *server = conn->server;
 
-	dprintf(conn->conn_fd, "%s Enter your pseudo : ", LOG);
-	conn->server->get_paquet(conn);
+	while (!conn->pseudo) {
+		dprintf(conn->conn_fd, "%s Enter your pseudo : ", LOG);
+		conn->server->get_paquet(conn);
+		if (get_fd_by_name(conn->server, strtok(conn->server->buffer, "\n")) == -1)
+			break;
+		dprintf(conn->conn_fd, "%s Name already taken\n", WARNING);
+	}
+	if (!conn->server->buffer || strlen(conn->server->buffer) == 0)
+		return ;
 	conn->pseudo = strdup(strtok(conn->server->buffer, "\n"));
 	for (size_t i = 0; i < server->conn->size; i++) {
 		struct conn_s *temp = (struct conn_s *)server->conn->at(
 			server->conn, i);
 		if (conn->conn_fd != temp->conn_fd) {
 			dprintf(temp->conn_fd, "%s %s joined\n", JOIN, conn->pseudo);
-		} else {
-			dprintf(conn->conn_fd, "%s Welcome %s\n", JOIN, conn->pseudo);
 		}
 	}
+	dprintf(conn->conn_fd, "%s Welcome %s\n", JOIN, conn->pseudo);
 }
 
 void delete_client(struct conn_s *conn)
@@ -118,9 +124,9 @@ void delete_client(struct conn_s *conn)
 			server->conn, i);
 		if (conn->conn_fd == temp->conn_fd) {
 			id = i;
-			dprintf(conn->conn_fd, "%s Disconnected\n", LOG);
+			dprintf(conn->conn_fd, "%s Disconnected\n", QUIT);
 		} else {
-			dprintf(temp->conn_fd, "%s %s disconnected\n", LOG,
+			dprintf(temp->conn_fd, "%s %s disconnected\n", QUIT,
 				conn->pseudo);
 		}
 	}
@@ -137,8 +143,7 @@ void send_reply_all(struct conn_s *conn)
 	for (size_t i = 0; i < list->size; i++) {
 		fd = ((struct conn_s *)list->at(list, i))->conn_fd;
 		if (conn->conn_fd != fd)
-			dprintf(fd, "%s : %s", conn->pseudo,
-				conn->server->buffer);
+			dprintf(fd, "%s[%s%s%s]%s %s", ANSI_COLOR_YELLOW, ANSI_COLOR_CYAN, conn->pseudo, ANSI_COLOR_YELLOW, ANSI_COLOR_RESET, conn->server->buffer);
 	}
 }
 
@@ -151,7 +156,7 @@ void send_list(struct conn_s *conn)
 	for (size_t i = 0; i < server->conn->size; i++) {
 		struct conn_s *temp = (struct conn_s *)server->conn->at(
 			server->conn, i);
-		dprintf(conn->conn_fd, "%d : %s\n", temp->conn_fd,
+		dprintf(conn->conn_fd, "%s[%s%d%s]%s : %s\n", ANSI_COLOR_YELLOW, ANSI_COLOR_GREEN, (int)i, ANSI_COLOR_YELLOW, ANSI_COLOR_RESET,
 			temp->pseudo);
 	}
 }
@@ -170,7 +175,7 @@ int send_pm(struct conn_s *conn)
 		return (-1);
 	receiver_fd = server->get_fd_by_name(server, receiver_pseudo);
 	msg = strtok(NULL, "\n");
-	dprintf(receiver_fd, "%s[%s%s%s]%s : %s\n", ANSI_COLOR_YELLOW, ANSI_COLOR_CYAN, conn->pseudo, ANSI_COLOR_YELLOW, ANSI_COLOR_RESET, msg);
+	dprintf(receiver_fd, "%s%s[%s%s%s]%s : %s\n", PM, ANSI_COLOR_YELLOW, ANSI_COLOR_CYAN, conn->pseudo, ANSI_COLOR_YELLOW, ANSI_COLOR_RESET, msg);
 	return (0);
 }
 
@@ -178,6 +183,8 @@ int get_fd_by_name(server_t *server, char *name)
 {
 	struct conn_s *conn;
 
+	if (!name)
+		return (-1);
 	for (size_t i = 0; i < server->conn->size; i++) {
 		conn = server->conn->at(server->conn, i);
 		if (strcmp(conn->pseudo, name) == 0) {
