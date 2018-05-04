@@ -34,8 +34,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95dec25c-e885-44f9-a8fd-5aadbacaf83a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -63,8 +61,8 @@
           <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="392">
-                  <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+                <state relative-caret-position="184">
+                  <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -84,8 +82,8 @@
           <file leaf-file-name="server.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/inc/server.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                <state relative-caret-position="555">
+                  <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
                   <folding>
                     <element signature="e#124#147#0" expanded="true" />
                   </folding>
@@ -121,8 +119,8 @@
           <file leaf-file-name="server.c" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="172" column="139" selection-start-line="172" selection-start-column="139" selection-end-line="172" selection-end-column="139" />
+                <state relative-caret-position="492">
+                  <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
                   <folding>
                     <element signature="e#75#94#0" expanded="true" />
                   </folding>
@@ -144,6 +142,10 @@
       <find>(int)</find>
       <find>push_ba</find>
       <find>joined</find>
+      <find>ask_pse</find>
+      <find>w</find>
+      <find>joine</find>
+      <find>ask</find>
     </findStrings>
     <replaceStrings>
       <replace>void *</replace>
@@ -277,7 +279,7 @@
       <workItem from="1525380805275" duration="8103000" />
       <workItem from="1525417864793" duration="36000" />
       <workItem from="1525435377916" duration="12265000" />
-      <workItem from="1525451336146" duration="1390000" />
+      <workItem from="1525451336146" duration="3479000" />
     </task>
     <task id="LOCAL-00001">
       <created>1525440156096</created>
@@ -356,11 +358,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525447411514</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added pm an some formats">
+      <created>1525452874681</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1525452874681</updated>
+    </task>
+    <task id="LOCAL-00013" summary="MORE FORMATTING">
+      <created>1525454187439</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1525454187439</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21794000" />
+    <option name="totallyTimeSpent" value="23883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1051" extended-state="6" />
@@ -405,7 +421,9 @@
     <MESSAGE value="added some methods" />
     <MESSAGE value="simplified already connected methods" />
     <MESSAGE value="Removed warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed warnings" />
+    <MESSAGE value="Added pm an some formats" />
+    <MESSAGE value="MORE FORMATTING" />
+    <option name="LAST_COMMIT_MESSAGE" value="MORE FORMATTING" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
@@ -561,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/vector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
@@ -578,10 +586,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/server.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="555">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
           <folding>
             <element signature="e#124#147#0" expanded="true" />
           </folding>
@@ -590,8 +608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="172" column="139" selection-start-line="172" selection-start-column="139" selection-end-line="172" selection-end-column="139" />
+        <state relative-caret-position="492">
+          <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
           <folding>
             <element signature="e#75#94#0" expanded="true" />
           </folding>

@@ -103,7 +103,7 @@ void ask_pseudo(struct conn_s *conn)
 	}
 	if (!conn->server->buffer || strlen(conn->server->buffer) == 0)
 		return ;
-	conn->pseudo = strdup(strtok(conn->server->buffer, "\n"));
+	conn->pseudo = strdup(strtok(conn->server->buffer, " "));
 	for (size_t i = 0; i < server->conn->size; i++) {
 		struct conn_s *temp = (struct conn_s *)server->conn->at(
 			server->conn, i);
