@@ -13,6 +13,9 @@ void *send_msg_to_all(void *para)
 		if (strcasecmp(server->buffer, "list\n") == 0) {
 			dprintf(conn->conn_fd, "Players connected : %d\n", (int)server->connfd->size);
 			continue;
+		} else if (strcasecmp(server->buffer, "quit\n") == 0) {
+			dprintf(conn->conn_fd, "Disconnected\n");
+			break;
 		}
 		for (size_t i = 0; i < server->connfd->size; i++) {
 			if (conn->conn_fd !=
