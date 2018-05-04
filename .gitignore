@@ -1,0 +1,8 @@
+cmake-build-debug
+CMakeLists.txt
+.idea
+a.out
+*.o
+*.old
+*.sh
+*.txt
