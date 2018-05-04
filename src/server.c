@@ -34,10 +34,12 @@ int open_port(server_t *server, size_t port)
 	return (0);
 }
 
-int get_paquet(server_t *server, int conn_fd)
+int get_paquet(struct conn_s *conn)
 {
+	server_t *server = conn->server;
+
 	bzero(server->buffer, 4097);
-	if (read(conn_fd, server->buffer, 4096) <= 0) {
+	if (read(conn->conn_fd, server->buffer, 4096) <= 0) {
 		return (-1);
 	}
 	return (0);
@@ -94,7 +96,7 @@ void ask_pseudo(struct conn_s *conn)
 	server_t *server = conn->server;
 
 	dprintf(conn->conn_fd, "Enter your pseudo : ");
-	conn->server->get_paquet(conn->server, conn->conn_fd);
+	conn->server->get_paquet(conn);
 	conn->pseudo = strdup(strtok(conn->server->buffer, "\n"));
 	for (size_t i = 0; i < server->conn->size; i++) {
 		struct conn_s *temp = (struct conn_s *)server->conn->at(server->conn, i);
@@ -125,12 +127,26 @@ void delete_client(struct conn_s *conn)
 	free(conn);
 }
 
-void send_list(server_t *server, int fd)
+void send_reply_all(struct conn_s *conn)
 {
-	dprintf(fd, "Players connected : %d\n", (int)server->connfd->size);
+	vector_t *list = conn->server->connfd;
+
+	for (size_t i = 0; i < list->size; i++) {
+		if (conn->conn_fd !=
+			(int)list->at(list, i))
+			dprintf((int)list->at(list,
+				i), "%s : %s", conn->pseudo ,conn->server->buffer);
+	}
+}
+
+void send_list(struct conn_s *conn)
+{
+	server_t *server = conn->server;
+
+	dprintf(conn->conn_fd, "Players connected : %d\n", (int)server->connfd->size);
 	for (size_t i = 0; i < server->conn->size; i++) {
 		struct conn_s *temp = (struct conn_s *)server->conn->at(server->conn, i);
-		dprintf(fd, "%d : %s\n", temp->conn_fd, temp->pseudo);
+		dprintf(conn->conn_fd, "%d : %s\n", temp->conn_fd, temp->pseudo);
 	}
 }
 
@@ -148,5 +164,6 @@ server_t *new_server()
 	server->delete_client = delete_client;
 	server->ask_pseudo = ask_pseudo;
 	server->send_list = send_list;
+	server->send_reply_all = send_reply_all;
 	return (server);
 }
