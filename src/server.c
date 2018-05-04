@@ -60,11 +60,12 @@ static void listen_thread(server_t *server, void *(*func)(void *))
 
 static void listen_fork(server_t *server, void *(*func)(void *))
 {
-	struct conn_s *conn = malloc(sizeof(struct conn_s));
+	struct conn_s *conn;
 	socklen_t size = sizeof(conn->sockconn);
 
-	conn->server = server;
 	while (server->listen) {
+		conn = malloc(sizeof(struct conn_s));
+		conn->server = server;
 		conn->conn_fd = accept(server->sockfd,
 			(struct sockaddr *)conn->sockconn, &size);
 		server->connfd->push_back(server->connfd, (void *)conn->conn_fd);
