@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <strings.h>
@@ -56,7 +57,6 @@ static void listen_thread(server_t *server, void *(*func)(void *))
 		conn->server = server;
 		conn->conn_fd = accept(server->sockfd,
 			(struct sockaddr *)conn->sockconn, &size);
-		server->connfd->push_back(server->connfd, (void *)conn->conn_fd);
 		pthread_create(&thread_id, NULL, func, (void *)conn);
 	}
 }
@@ -71,7 +71,6 @@ static void listen_fork(server_t *server, void *(*func)(void *))
 		conn->server = server;
 		conn->conn_fd = accept(server->sockfd,
 			(struct sockaddr *)conn->sockconn, &size);
-		server->connfd->push_back(server->connfd, (void *)conn->conn_fd);
 		if (fork() == 0) {
 			func(conn);
 		}
@@ -129,13 +128,13 @@ void delete_client(struct conn_s *conn)
 
 void send_reply_all(struct conn_s *conn)
 {
-	vector_t *list = conn->server->connfd;
+	vector_t *list = conn->server->conn;
+	int fd;
 
 	for (size_t i = 0; i < list->size; i++) {
-		if (conn->conn_fd !=
-			(int)list->at(list, i))
-			dprintf((int)list->at(list,
-				i), "%s : %s", conn->pseudo ,conn->server->buffer);
+		fd = ((struct conn_s *)list->at(list, i))->conn_fd;
+		if (conn->conn_fd != fd)
+			dprintf(fd, "%s : %s", conn->pseudo ,conn->server->buffer);
 	}
 }
 
