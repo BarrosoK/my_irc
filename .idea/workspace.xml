@@ -33,7 +33,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95dec25c-e885-44f9-a8fd-5aadbacaf83a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/vector.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vector.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,20 +52,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+                <state relative-caret-position="130">
+                  <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+                <state relative-caret-position="137">
+                  <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -69,8 +73,17 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="8" selection-start-line="8" selection-end-line="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="server.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server.h">
+            <entry file="file://$PROJECT_DIR$/inc/server.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="243">
                   <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
@@ -95,7 +108,7 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="vector.c" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vector.c">
+            <entry file="file://$PROJECT_DIR$/src/vector.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="621">
                   <caret line="210" column="26" selection-start-line="210" selection-start-column="26" selection-end-line="210" selection-end-column="26" />
@@ -107,10 +120,10 @@
             </entry>
           </file>
           <file leaf-file-name="server.c" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/server.c">
+            <entry file="file://$PROJECT_DIR$/src/server.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="386">
-                  <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
+                  <caret line="55" column="79" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
                   <folding>
                     <element signature="e#75#94#0" expanded="true" />
                   </folding>
@@ -141,9 +154,10 @@
         <option value="$PROJECT_DIR$/vector.h" />
         <option value="$PROJECT_DIR$/vector.c" />
         <option value="$PROJECT_DIR$/server.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/server.c" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -206,6 +220,12 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/inc" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -238,7 +258,7 @@
       <updated>1525380802652</updated>
       <workItem from="1525380805275" duration="8103000" />
       <workItem from="1525417864793" duration="36000" />
-      <workItem from="1525435377916" duration="6515000" />
+      <workItem from="1525435377916" duration="6785000" />
     </task>
     <task id="LOCAL-00001">
       <created>1525440156096</created>
@@ -261,24 +281,38 @@
       <option name="project" value="LOCAL" />
       <updated>1525440289330</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added quit cmd">
+      <created>1525441936681</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1525441936681</updated>
+    </task>
+    <task id="LOCAL-00005" summary="some reorgarnizations">
+      <created>1525442090518</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1525442090518</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14654000" />
+    <option name="totallyTimeSpent" value="14924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1051" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32899022" />
       <window_info anchor="bottom" id="Regex Tester" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3083605" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32899022" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15023722" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TeamCity" order="7" />
@@ -302,8 +336,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="added quit cmd" />
+    <MESSAGE value="some reorgarnizations" />
+    <option name="LAST_COMMIT_MESSAGE" value="some reorgarnizations" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
@@ -330,7 +370,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vector.c">
+    <entry file="file://$PROJECT_DIR$/src/vector.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5460">
           <caret line="210" column="26" selection-start-line="210" selection-start-column="26" selection-end-line="210" selection-end-column="26" />
@@ -364,7 +404,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vector.c">
+    <entry file="file://$PROJECT_DIR$/src/vector.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5460">
           <caret line="210" column="26" selection-start-line="210" selection-start-column="26" selection-end-line="210" selection-end-column="26" />
@@ -381,7 +421,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vector.c">
+    <entry file="file://$PROJECT_DIR$/src/vector.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="210" column="26" selection-start-line="210" selection-start-column="26" selection-end-line="210" selection-end-column="26" />
@@ -391,7 +431,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.h">
+    <entry file="file://$PROJECT_DIR$/inc/server.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
@@ -401,30 +441,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.c">
+    <entry file="file://$PROJECT_DIR$/src/server.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
-          <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
+          <caret line="55" column="79" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
           <folding>
             <element signature="e#75#94#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="137">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
