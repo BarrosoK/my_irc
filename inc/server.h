@@ -12,6 +12,18 @@
 #include <sys/socket.h>
 #include "vector.h"
 
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
+#define WARNING "\x1b[33m/\x1b[31m!\x1b[33m\\ \x1b[0m"
+#define LOG "\x1b[33m[\x1b[34m-\x1b[33m]\x1b[0m"
+#define JOIN "\x1b[33m[\x1b[35m+\x1b[33m]\x1b[0m"
+
 typedef struct server_s server_t;
 
 enum server_type {
@@ -41,8 +53,12 @@ struct server_s {
 	void (*ask_pseudo)(struct conn_s *);
 	void (*send_list)(struct conn_s *);
 	void (*send_reply_all)(struct conn_s *);
+	int (*send_pm)(struct conn_s *);
+	int (*get_fd_by_name)(server_t *, char *);
 };
 
+int get_fd_by_name(server_t *, char *);
+int send_pm(struct conn_s *);
 void send_reply_all(struct conn_s *);
 void send_list(struct conn_s *);
 void ask_pseudo(struct conn_s *);

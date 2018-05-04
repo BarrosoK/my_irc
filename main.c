@@ -17,6 +17,9 @@ static void *connection_handler(void *para)
 			continue;
 		} else if (strcasecmp(server->buffer, "quit\n") == 0) {
 			break;
+		} else if (strncasecmp(server->buffer, "pm", 2) == 0) {
+			server->send_pm(conn);
+			continue;
 		}
 		server->send_reply_all(conn);
 	}
