@@ -11,8 +11,6 @@ void *listen_paquet(void *para)
 
 	while (server->get_paquet(server, conn->conn_fd) == 0) {
 		for (size_t i = 0; i < server->connfd->size; i++) {
-			if (conn->conn_fd !=
-				(int)server->connfd->at(server->connfd, i))
 			dprintf((int)server->connfd->at(server->connfd, i), "-> %s", server->buffer);
 		}
 	}

@@ -3,6 +3,6 @@ project(vector C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(vector main.c vector.c vector.h server.c server.h)
+add_executable(server main.c vector.c vector.h server.c server.h)
 
-target_link_libraries(vector pthread)
+target_link_libraries(server pthread)
