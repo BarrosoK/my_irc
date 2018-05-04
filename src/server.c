@@ -11,6 +11,7 @@
 #include <netinet/in.h>
 #include <strings.h>
 #include <pthread.h>
+#include <memory.h>
 #include "../inc/server.h"
 
 int open_port(server_t *server, size_t port)
@@ -88,6 +89,51 @@ int start_listening(server_t *server, int max_connections,
 	return (0);
 }
 
+void ask_pseudo(struct conn_s *conn)
+{
+	server_t *server = conn->server;
+
+	dprintf(conn->conn_fd, "Enter your pseudo : ");
+	conn->server->get_paquet(conn->server, conn->conn_fd);
+	conn->pseudo = strdup(strtok(conn->server->buffer, "\n"));
+	for (size_t i = 0; i < server->conn->size; i++) {
+		struct conn_s *temp = (struct conn_s *)server->conn->at(server->conn, i);
+		if (conn->conn_fd != temp->conn_fd)  {
+			dprintf(temp->conn_fd, "%s joined\n", conn->pseudo);
+		} else {
+			dprintf(conn->conn_fd, "Welcome %s\n", conn->pseudo);
+		}
+	}
+}
+
+void delete_client(struct conn_s *conn)
+{
+	server_t *server = conn->server;
+	size_t id = 0;
+
+	for (size_t i = 0; i < server->conn->size; i++) {
+		struct conn_s *temp = (struct conn_s *)server->conn->at(server->conn, i);
+		if (conn->conn_fd == temp->conn_fd) {
+			id = i;
+			dprintf(conn->conn_fd, "Disconnected\n");
+		} else {
+			dprintf(temp->conn_fd, "%s disconnected\n", conn->pseudo);
+		}
+	}
+	server->conn->erase(server->conn, id);
+	server->connfd->erase(server->connfd, id);
+	free(conn);
+}
+
+void send_list(server_t *server, int fd)
+{
+	dprintf(fd, "Players connected : %d\n", (int)server->connfd->size);
+	for (size_t i = 0; i < server->conn->size; i++) {
+		struct conn_s *temp = (struct conn_s *)server->conn->at(server->conn, i);
+		dprintf(fd, "%d : %s\n", temp->conn_fd, temp->pseudo);
+	}
+}
+
 server_t *new_server()
 {
 	server_t *server = malloc(sizeof(server_t));
@@ -95,8 +141,12 @@ server_t *new_server()
 	if (!server)
 		return (NULL);
 	server->connfd = new_vector();
+	server->conn = new_vector();
 	server->open_port = open_port;
 	server->start_listening = start_listening;
 	server->get_paquet = get_paquet;
+	server->delete_client = delete_client;
+	server->ask_pseudo = ask_pseudo;
+	server->send_list = send_list;
 	return (server);
 }

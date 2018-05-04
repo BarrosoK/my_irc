@@ -4,13 +4,15 @@
 #include "inc/vector.h"
 #include "inc/server.h"
 
-static void send_all(int my_fd, vector_t *list, char *buffer)
+static void send_all(struct conn_s *conn)
 {
+	vector_t *list = conn->server->connfd;
+
 	for (size_t i = 0; i < list->size; i++) {
-		if (my_fd !=
+		if (conn->conn_fd !=
 			(int)list->at(list, i))
 			dprintf((int)list->at(list,
-				i), "-> %s", buffer);
+				i), "%s : %s", conn->pseudo ,conn->server->buffer);
 	}
 }
 
@@ -19,18 +21,18 @@ static void *send_msg_to_all(void *para)
 	struct conn_s *conn = (struct conn_s *)para;
 	server_t *server = conn->server;
 
+	server->conn->push_back(server->conn, (void *)conn);
+	server->ask_pseudo(conn);
 	while (server->get_paquet(server, conn->conn_fd) == 0) {
 		if (strcasecmp(server->buffer, "list\n") == 0) {
-			dprintf(conn->conn_fd, "Players connected : %d\n", (int)server->connfd->size);
+			server->send_list(server, conn->conn_fd);
 			continue;
 		} else if (strcasecmp(server->buffer, "quit\n") == 0) {
-			dprintf(conn->conn_fd, "Disconnected\n");
 			break;
 		}
-		send_all(conn->conn_fd, server->connfd, server->buffer);
+		send_all(conn);
 	}
-	printf("Client disconnected\n");
-	free(conn);
+	server->delete_client(conn);
 	return (NULL);
 }
 

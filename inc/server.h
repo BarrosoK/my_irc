@@ -21,25 +21,30 @@ enum server_type {
 
 struct conn_s {
 	server_t *server;
+	char *pseudo;
 	int conn_fd;
 	struct sockaddr_in *sockconn;
 };
 
 struct server_s {
 	vector_t *connfd;
+	vector_t *conn;
 	int sockfd;
 	int listen;
 	char buffer[4096 + 1];
 	struct sockaddr_in sockaddr;
 
 	int (*open_port)(server_t *, size_t);
-
-	int (*start_listening)(server_t *, int, enum server_type,
-		void *(*func)(void *));
-
+	int (*start_listening)(server_t *, int, enum server_type, void *(*func)(void *));
 	int (*get_paquet)(server_t *, int);
+	void (*delete_client)(struct conn_s *);
+	void (*ask_pseudo)(struct conn_s *);
+	void (*send_list)(server_t *, int);
 };
 
+void send_list(server_t *, int);
+void ask_pseudo(struct conn_s *);
+void delete_client(struct conn_s *);
 int start_listening(server_t *, int max_conns, enum server_type,
 	void *(*func)(void *));
 
