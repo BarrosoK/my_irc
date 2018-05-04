@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/vector.dir/main.c.o CMakeFiles/vector.dir/vector.c.o CMakeFiles/vector.dir/server.c.o  -o vector -lpthread 
